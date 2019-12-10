@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+        <title>Day 1 Game 1 "Map"</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="text/javascript" src="js/phaser.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<!--        <script type="text/javascript" src="js/playpause.js"></script>-->
+    </head>
+    
+    <body>
+<!--
+        <div class="videoWrapper">
+        <video class="video" id="Video" preload="auto" onclick="this.play()">
+    <source src="video/F1_1.mp4" id="mp4Source" type="video/mp4">
+    Video is not supported
+</video>
+            </div>
+-->
+
+<script type='text/javascript'>
+   var count=1;
+   var player=document.getElementById('Video');
+   var mp4Vid = document.getElementById('mp4Source');
+   player.addEventListener('ended',Handler,false);
+
+   function Handler(e)
+   {
+       if (count < 2){
+           
+      if(!e) 
+      {
+         e = window.event; 
+      }
+      count++;
+      $(mp4Vid).attr('src', "video/F1_"+count+".mp4");
+      player.load();
+      player.play();
+   }
+       $(".videoWrapper video").bind('ended', function() {
+        $(this).parent().fadeOut()
+    })
+       }
+
+</script>
+             <script src="js/Scene1.js"></script>
+            <script src="js/main.js"></script>
+    </body>
+</html>
